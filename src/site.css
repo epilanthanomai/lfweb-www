@@ -1,17 +1,28 @@
+:root {
+  --left-col-width-desktop: 30%;
+  --left-col-width-mobile: 10%;
+}
+@custom-media --mobile (width < 640px);
+
 html {
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right, green, green 30%, white 30%, white);
+  background: linear-gradient(
+      to right,
+      green,
+      green var(--left-col-width-desktop),
+      white var(--left-col-width-desktop),
+      white);
 }
 
 body {
-  margin-left: 35%;
+  margin-left: calc(var(--left-col-width-desktop) + 5%);
 }
 
 .site-logo {
   position: absolute;
   top: 50%;
-  left: 30%;
+  left: var(--left-col-width-desktop);
   height: 50%;
   transform: translate(-65%, -50%);
 }
@@ -34,15 +45,22 @@ body {
   color: rgb(70%, 70%, 70%);
 }
 
-@media (max-width: 639px) {
+@media (--mobile) {
   html {
-    background: linear-gradient(to right, green, green 10%, white 10%, white);
+    background: linear-gradient(
+        to right,
+        green,
+        green var(--left-col-width-mobile),
+        white var(--left-col-width-mobile),
+        white);
   }
+
   body {
-    margin-left: 15%;
+    margin-left: calc(var(--left-col-width-mobile) + 5%);
   }
+
   .site-logo {
-    left: 10%;
+    left: var(--left-col-width-mobile);
     height: 25%;
   }
 }

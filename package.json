@@ -1,0 +1,13 @@
+{
+  "name": "lfweb-www",
+  "version": "1.0.0",
+  "description": "lateralfricative.net website",
+  "author": "Hope Ranker <hope.ranker@gmail.com",
+  "devDependencies": {
+    "cssnext": "^1.8.4",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-cssnano": "^2.0.0",
+    "gulp-postcss": "^6.0.1"
+  }
+}
