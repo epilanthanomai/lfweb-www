@@ -1,6 +1,6 @@
 {
   "name": "lfweb-www",
-  "version": "0.0.1",
+  "version": "0.0.2-dev",
   "description": "lateralfricative.net website",
   "author": "Hope Ranker <hope.ranker@gmail.com",
   "devDependencies": {
