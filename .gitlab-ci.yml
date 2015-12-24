@@ -1,0 +1,9 @@
+before_script:
+  - npm install
+
+build:
+  script: node_modules/gulp/bin/gulp.js
+  stage: build
+  artifacts:
+    paths:
+      - dist/
