@@ -7,3 +7,6 @@ build:
   artifacts:
     paths:
       - dist/
+  cache:
+    paths:
+      - node_modules/
