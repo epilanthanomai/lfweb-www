@@ -2,7 +2,7 @@ gulp = require("gulp");
 
 // css processing
 postcss = require("gulp-postcss");
-cssnext = require('cssnext');
+cssnext = require('postcss-cssnext');
 cssnano = require('gulp-cssnano');
 
 // packaging & util

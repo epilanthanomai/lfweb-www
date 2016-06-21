@@ -10,12 +10,12 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
-    "cssnext": "^1.8.4",
     "gulp": "^3.9.0",
     "gulp-clean": "^0.3.1",
     "gulp-cssnano": "^2.0.0",
     "gulp-gzip": "^1.2.0",
     "gulp-postcss": "^6.0.1",
-    "gulp-tar": "^1.7.0"
+    "gulp-tar": "^1.7.0",
+    "postcss-cssnext": "^2.6.0"
   }
 }
