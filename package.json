@@ -2,7 +2,13 @@
   "name": "lfweb-www",
   "version": "0.0.3-dev",
   "description": "lateralfricative.net website",
-  "author": "Hope Ranker <hope.ranker@gmail.com",
+  "author": "Hope Ranker <hope.ranker@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.lateralfricative.net/hope/lfweb-www.git"
+  },
+  "license": "UNLICENSED",
+  "private": true,
   "devDependencies": {
     "cssnext": "^1.8.4",
     "gulp": "^3.9.0",
