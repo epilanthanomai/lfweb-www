@@ -1,22 +1,36 @@
+@import "definitions";
+
 :root {
   --left-col-width-desktop: 30%;
   --left-col-width-mobile: 10%;
 }
-@custom-media --mobile (width < 640px);
 
 html {
   height: 100%;
   width: 100%;
   background: linear-gradient(
       to right,
-      green,
-      green var(--left-col-width-desktop),
+      var(--color--site-primary),
+      var(--color--site-primary) var(--left-col-width-desktop),
       white var(--left-col-width-desktop),
       white);
+
+  @media (--mobile) {
+    background: linear-gradient(
+        to right,
+        var(--color--site-primary),
+        var(--color--site-primary) var(--left-col-width-mobile),
+        white var(--left-col-width-mobile),
+        white);
+  }
 }
 
 body {
   margin-left: calc(var(--left-col-width-desktop) + 5%);
+
+  @media (--mobile) {
+    margin-left: calc(var(--left-col-width-mobile) + 5%);
+  }
 }
 
 .site-logo {
@@ -25,6 +39,11 @@ body {
   left: var(--left-col-width-desktop);
   height: 50%;
   transform: translate(-65%, -50%);
+
+  @media (--mobile) {
+    left: var(--left-col-width-mobile);
+    height: 25%;
+  }
 }
 
 .banner {
@@ -43,24 +62,4 @@ body {
 .tagline {
   font-size: 130%;
   color: rgb(70%, 70%, 70%);
-}
-
-@media (--mobile) {
-  html {
-    background: linear-gradient(
-        to right,
-        green,
-        green var(--left-col-width-mobile),
-        white var(--left-col-width-mobile),
-        white);
-  }
-
-  body {
-    margin-left: calc(var(--left-col-width-mobile) + 5%);
-  }
-
-  .site-logo {
-    left: var(--left-col-width-mobile);
-    height: 25%;
-  }
 }

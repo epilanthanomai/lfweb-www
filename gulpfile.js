@@ -3,6 +3,7 @@ gulp = require("gulp");
 // css processing
 postcss = require("gulp-postcss");
 cssnext = require('postcss-cssnext');
+cimport = require('postcss-import');
 cssnano = require('gulp-cssnano');
 
 // packaging & util
@@ -26,7 +27,9 @@ static_src = [
   src_dir + '/*.html',
   src_dir + '/*.png'
 ];
-css_src = src_dir + '/*.css';
+
+css_src = src_dir + '/css/site.css';
+css_src_all = src_dir + '/css/**/*.css';
 
 // tasks
 
@@ -40,6 +43,7 @@ gulp.task('static', function() {
 
 gulp.task('css', function() {
   var processors = [
+    cimport(),
     cssnext()
   ]
   return gulp.src(css_src)
@@ -62,5 +66,5 @@ gulp.task('clean', function() {
 
 gulp.task('watch', function() {
   gulp.watch(static_src, ['static']);
-  gulp.watch(css_src, ['css']);
+  gulp.watch(css_src_all, ['css']);
 });
