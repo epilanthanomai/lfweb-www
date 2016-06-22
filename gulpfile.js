@@ -28,7 +28,10 @@ static_src = [
   src_dir + '/*.png'
 ];
 
-css_src = src_dir + '/css/site.css';
+css_src = [
+  src_dir + '/css/site.css',
+  src_dir + '/css/resume.css'
+];
 css_src_all = src_dir + '/css/**/*.css';
 
 // tasks

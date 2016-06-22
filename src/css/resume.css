@@ -1,0 +1,278 @@
+@import "definitions";
+@import "reset";
+
+:root {
+  --size--body-width: 1024px;
+
+  --size--margin-body-mobile: 10px;
+  --size--margin-left-skills-desktop: 2rem;
+  --size--margin-left-skills-phone: 1.8rem;
+  --size--side-left: 4rem;
+  --size--arrow-inline: 0.8em;
+
+  --line_height: 1.2;
+}
+
+/* Structural elements */
+
+html {
+  position: relative;
+  max-width: var(--size--body-width);
+  background-color: var(--color--site-primary);
+  font-family: sans-serif;
+}
+
+body {
+  line-height: var(--line_height);
+  padding: 2em var(--size--margin-body-mobile) 2em calc(var(--size--side-left) + 0.8rem);
+  background-color: white;
+  color: var(--color--almost_black);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-left: 4rem solid green;
+  }
+
+  & > section {
+    margin: 3em 0;
+
+    @media (--phone) {
+      margin: 2em 0;
+    }
+  }
+}
+
+@media (--desktop-large) {
+  html {
+    margin: auto;
+  }
+
+  body {
+    padding: 3em;
+
+    &::before {
+      border: 0;
+    }
+  }
+}
+
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h2 {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color--site-secondary);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -3rem;
+    top: 0.2em;
+    border: calc(var(--size--arrow-inline) / 2) solid transparent;
+    border-left-color: var(--color--site-secondary);
+
+    @media (--desktop-large) {
+      left: -6rem;
+    }
+  }
+}
+
+a, a:visited {
+  color: var(--color--site-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+a:active, a:hover, a:focus {
+  color: var(--color--site-secondary);
+  text-decoration: underline;
+}
+
+/* Awkwardly shared properties */
+
+.tagline,
+.note {
+  font-size: 0.9rem;
+  color: var(--color--gray-medium);
+}
+
+.tagline {
+  margin: 0.2em 4rem 2em;
+
+  @media (--phone) {
+    margin: 0.2em 2rem 1.5em;
+  }
+}
+
+.note-inflow {
+  margin: 3em 4rem;
+  text-align: center;
+
+  @media (--phone) {
+    margin: 3em 1rem;
+  }
+}
+
+.note-critical {
+  color: var(--color--site-secondary);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.skills--category,
+.experience--skills {
+  & li {
+    display: inline;
+    margin: 0 0.2em;
+    white-space: nowrap;
+  }
+}
+
+.skills--category ul,
+.experience--skills {
+  font-size: 0.9rem;
+}
+
+.experience--description,
+.humanity ul {
+  margin: 1em;
+
+  & li {
+    margin: 0.5em 0;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -1em;
+      top: calc((1em - var(--size--arrow-inline)) / 2);
+      border: calc(var(--size--arrow-inline) / 2) solid transparent;
+      border-left-color: var(--color--site-secondary);
+    }
+  }
+}
+
+/* Sections */
+
+.contact {
+  position: relative;
+  margin: 2.5em 0 4em;
+
+  @media (--phone) {
+    margin: 1em 0;
+  }
+
+  & a {
+    color: inherit;
+
+    &:active, &:hover, &:focus {
+      color: var(--color--site-secondary);
+    }
+  }
+
+  & dt {
+    position: absolute;
+    left: -5em;
+    display: inline-block;
+    width: calc(var(--size--side-left) - 0.8rem);
+    text-align: right;
+    font-weight: lighter;
+    color: var(--color--gray-light);
+
+    @media (--desktop-large) {
+      left: -8em;
+    }
+  }
+
+  & dd {
+    font-weight: bold;
+  }
+}
+
+.skills {
+  & h3 {
+    color: var(--color--gray-medium);
+  }
+
+  &--category {
+    margin: 0.4em 0;
+
+    & ul {
+      margin: 0 0 0 var(--size--margin-left-skills-desktop);
+
+      @media (--phone) {
+        margin-left: var(--size--margin-left-skills-phone);
+      }
+    }
+  }
+}
+
+.experience {
+  & h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color--site-primary);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -1.8rem;
+      border: 0.4em solid transparent;
+      border-left-color: var(--color--almost_black);
+      top: 0.2em;
+
+      @media (--desktop-large) {
+        left: -4.8rem;
+      }
+    }
+  }
+
+  &--company {
+    margin: 2em 0;
+
+    @media (--phone) {
+      margin: 1em 0;
+    }
+  }
+
+  &--prolog {
+    position: relative;
+    min-height: calc(2em * var(--line_height));
+  }
+
+  &--title {
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &--tenure {
+    position: absolute;
+    top: calc(1em * var(--line_height));
+    right: 0;
+  }
+
+  @media (--phone) {
+    &--title,
+    &--tenure {
+      position: initial;
+    }
+  }
+
+  &--skills {
+    margin: 1em 0 0.5em var(--size--margin-left-skills-desktop);
+
+    @media (--phone) {
+      margin-left: var(--size--margin-left-skills-phone);
+    }
+  }
+}

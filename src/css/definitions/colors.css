@@ -1,3 +1,8 @@
 :root {
+  --color--almost_black: #333;
+  --color--gray-medium: #888;
+  --color--gray-light: #ccc;
+
   --color--site-primary: green;
+  --color--site-secondary: orange;
 }
