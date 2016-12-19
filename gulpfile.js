@@ -16,7 +16,7 @@ pkg = require('./package.json');
 // paths
 src_dir = './src';
 build_root = './build';
-build_name = pkg.name + '-' + pkg.version;
+build_name = pkg.name;
 build_dir = build_root + '/' + build_name;
 docroot = build_dir + '/docroot';
 
