@@ -1,20 +1,29 @@
 language: node_js
 node_js: node
 
+sudo: required  # for docker
+services:
+  - docker
+
 before_script: npm install -g gulp
-script: gulp
+script:
+  - gulp
+  - docker build -f docker/Dockerfile -t lfweb
 
-deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: $AWS_BUCKET
-  skip_cleanup: true
-  local_dir: dist
-
-  on:
-    repo: epilanthanomai/lfweb-www
-    all_branches: true
+after_success:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - if [ "$TRAVIS_BRANCH" == develop ]; then
+      docker tag lfweb epilanthanomai/lfweb:dev;
+      docker push epilanthanomai/lfweb:dev;
+    fi
+  - if [ "$TRAVIS_BRANCH" == master ]; then
+      docker tag lfweb epilanthanomai/lfweb;
+      docker push epilanthanomai/lfweb;
+    fi
+  - if [ -n "$TRAVIS_TAG" ]; then
+      docker tag lfweb epilanthanomai/lfweb:$TRAVIS_TAG;
+      docker push epilanthanomai/lfweb:$TRAVIS_TAG;
+    fi
 
 notifications:
   email: false
