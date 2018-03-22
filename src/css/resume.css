@@ -217,9 +217,11 @@ a:active, a:hover, a:focus {
 
 .experience {
   & h3 {
+    position: relative;
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--color--site-primary);
+    margin: 1.5rem 0 0.3rem;
 
     &::before {
       content: "";
