@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/bin/ash
 exec nginx -g 'daemon off;'

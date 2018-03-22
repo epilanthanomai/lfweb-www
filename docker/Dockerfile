@@ -7,6 +7,6 @@ COPY docker/start-nginx.sh /opt/lfweb-www/
 
 COPY docker/default.conf /etc/nginx/conf.d/default.conf
 
-CMD ["bash", "/opt/lfweb-www/start-nginx.sh"]
+CMD ["/bin/ash", "/opt/lfweb-www/start-nginx.sh"]
 
 EXPOSE 80 443
