@@ -13,3 +13,5 @@ COPY docker/default.nossl.conf /etc/nginx/conf.nossl.d/default.conf
 COPY docker/default.ssl.conf /etc/nginx/conf.ssl.d/default.conf
 
 CMD ["bash", "/opt/lfweb-www/start-nginx.sh"]
+
+EXPOSE 80 443
