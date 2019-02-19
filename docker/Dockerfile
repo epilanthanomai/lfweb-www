@@ -1,4 +1,4 @@
-FROM nginx:stable-alpine
+FROM nginx:1.14.2-alpine
 
 MAINTAINER Hope Ranker <hope.ranker@gmail.com>
 
