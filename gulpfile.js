@@ -36,9 +36,6 @@ css_src_all = src_dir + '/css/**/*.css';
 
 // tasks
 
-gulp.task('default', ['package']);
-gulp.task('build', ['static', 'css']);
-
 gulp.task('static', function() {
   return gulp.src(static_src)
       .pipe(gulp.dest(docroot));
@@ -55,12 +52,14 @@ gulp.task('css', function() {
       .pipe(gulp.dest(docroot));
 });
 
-gulp.task('package', ['build'], function() {
+gulp.task('build', gulp.series('static', 'css'));
+
+gulp.task('package', gulp.series('build', function() {
   return gulp.src(build_dir + '/**/*', { base: build_root })
       .pipe(tar(build_name + '.tar'))
       .pipe(gzip())
       .pipe(gulp.dest(dist_root));
-});
+}));
 
 gulp.task('clean', function() {
   return gulp.src([build_root, dist_root])
@@ -68,6 +67,8 @@ gulp.task('clean', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(static_src, ['static']);
-  gulp.watch(css_src_all, ['css']);
+  gulp.watch(static_src, gulp.series('static'));
+  gulp.watch(css_src_all, gulp.series('css'));
 });
+
+gulp.task('default', gulp.series('package'));
