@@ -5,9 +5,7 @@ sudo: required  # for docker
 services:
   - docker
 
-before_script: npm install -g gulp
 script:
-  - gulp
   - docker build -f docker/Dockerfile -t lfweb .
 
 after_success:
