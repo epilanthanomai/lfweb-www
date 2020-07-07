@@ -20,7 +20,7 @@
     "postcss-import": "^12.0.1"
   },
   "dependencies": {
-    "npm": "^6.8.0",
+    "npm": "^6.14.6",
     "npm-check-updates": "^2.15.0"
   }
 }
